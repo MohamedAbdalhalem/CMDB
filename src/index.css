@@ -1,0 +1,71 @@
+@import "tailwindcss";
+@plugin "flowbite-react/plugin/tailwindcss";
+@source "../.flowbite-react/class-list.json";
+@custom-variant dark (&:where(.dark, .dark *));
+@import url('https://fonts.googleapis.com/css2?family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap');
+
+body{
+    font-family: "TikTok Sans", sans-serif;
+    overflow-x: hidden;
+}
+.active{
+    color: #1A71E3;
+    font-weight: 900;
+    font-size: 16px;
+}
+section{
+    background-image: linear-gradient(to bottom, rgba(0, 24, 129, 0.5), rgba(0, 24, 129, 0.5)), url('./assets/h3KN24PrOheHVYs9ypuOIdFBEpX.webp');
+}
+
+.upComing{
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./assets/how-can-someone-make-this-background-with-html-and-css-i-v0-zjgs096khv591.webp');
+    background-size: cover;
+}
+.loader {
+  font-size: 48px;
+  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #666a6d;
+  box-sizing: border-box;
+  text-shadow: 0 0 2px #FFF, 0 0 1px #FFF, 0 0 1px #FFF;
+  letter-spacing: 2px;
+  position: relative;
+}
+.dark .loader{
+    color: #263238;
+}
+.loader::after {
+  content: 'Loading';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #000;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  animation: animloader 2s linear infinite;
+}
+.dark .loader::after{
+    color: #FFF;
+}
+@keyframes animloader {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+.movieDetials{
+  background-color: rgba(0, 0, 0, 0.5);
+}
+@media (min-width: 768px){
+  [data-testid="flowbite-navbar-collapse"] > ul {
+  align-items: center;
+}
+}
+.filter{
+  background-color: rgba(0, 0, 0, 0.75);
+}
