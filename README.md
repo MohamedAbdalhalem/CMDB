@@ -4,7 +4,7 @@ A modern, responsive web application for browsing movies and TV shows – inspir
 Built with **React + TypeScript**, and powered by **TMDB API**, it features rich UI, full movie/TV data, Firebase authentication, and dark mode support.
 
 ## 🌐 Live Demo
-🔗 [rotana-cinema-rose.vercel.app](https://rotana-cinema-rose.vercel.app)
+🔗 [rotana-cinema-rose.vercel.app](https://cmdb-two.vercel.app/)
 
 ---
 
