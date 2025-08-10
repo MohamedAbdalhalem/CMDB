@@ -27,7 +27,7 @@ const router = createBrowserRouter([{
     { path: '', element: <AuthRoute><Home /></AuthRoute> },
     {path:'Movies',element:<AuthRoute><AllMovies/></AuthRoute>},
     {
-      path: 'movies/:id', element: <AuthRoute><MovieDetials /></AuthRoute>,
+      path: 'Movies/:id', element: <AuthRoute><MovieDetials /></AuthRoute>,
       children: [
         { path: '', element: <MovieOverview /> },
         { path: 'overview', element: <MovieOverview /> },

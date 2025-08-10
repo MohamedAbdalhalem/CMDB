@@ -5,9 +5,13 @@ import { useParams } from 'react-router'
 import RecommendationMoviesSlider from './RecommendationMoviesSlider'
 import notFoundImg from '../assets/No_Image_Available.jpg'
 import MovieCastandCrewSlider from './MovieCastandCrewSlider'
+import TrailerModal from './TrailerModal'
+import useTrailer from '../Hooks/useTrailer'
+
 export default function MovieOverview(){
   const { id } = useParams()
   const { details, getTime, isLoading } = useMovieDetials(id)
+  const trailer = useTrailer( true,id!)
   if (isLoading) {
     <MovieDetialsLoadingScreen/> 
   }
@@ -16,7 +20,7 @@ export default function MovieOverview(){
     <div
       className="relative bg-cover bg-center py-10 px-4 sm:px-10"
       style={{
-        backgroundImage: `url(https://image.tmdb.org/t/p/w1280/${details?.poster_path})`
+        backgroundImage: `url(https://image.tmdb.org/t/p/w1280/${details?.backdrop_path})`
       }}
     >
       <div className="absolute  inset-0 bg-black/80 backdrop-blur-md z-0"></div>
@@ -24,7 +28,7 @@ export default function MovieOverview(){
       <div className="relative z-10 max-w-7xl mx-auto grid md:grid-cols-4 gap-10 items-start">
         <div className="rounded-xl h-full  overflow-hidden shadow-lg">
           <img
-            src={details?.backdrop_path ? `https://image.tmdb.org/t/p/w500/${details?.backdrop_path}` : notFoundImg}
+            src={details?.backdrop_path ? `https://image.tmdb.org/t/p/w500/${details?.poster_path}` : notFoundImg}
             alt={details?.title}
             className="w-full h-full object-fill"
           />
@@ -48,7 +52,8 @@ export default function MovieOverview(){
             <div className="w-12 h-12 rounded-full bg-[#1A71E3] text-white flex items-center justify-center font-bold text-sm">
               {Number(details?.vote_average?.toFixed(1)) * 10 + "%"}
             </div>
-            <span className="text-base font-semibold">User Score</span>
+              <span className="text-base font-semibold">User Score</span>
+              {trailer?.length ? <TrailerModal trailerName={ trailer![0].name } trailerkey={trailer![0].key} /> : ''}
           </div>
 
           <p className="italic text-lg text-gray-300">{details?.tagline}</p>

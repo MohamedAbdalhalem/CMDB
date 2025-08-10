@@ -17,7 +17,7 @@ export default function Card({ type,movieData ,tvShowData ,personData }
   };
     let pathName = ''
     if (type === "movie") {
-        pathName = `/movies/${movieData?.id}/overview`
+        pathName = `/Movies/${movieData?.id}/overview`
     } else if (type === "tv") {
         pathName = `/tvShows/${tvShowData?.id}/overview`
     } else {

@@ -46,7 +46,7 @@ export default function useAllMovies() {
             setSortBy(storedSortBy)
         }
         return () => {
-            if (!location.pathname.startsWith('/movies')) {
+            if (!location.pathname.startsWith('/Movies')) {
                 sessionStorage.removeItem('allMoviesPage');
                 sessionStorage.removeItem('allMoviesGenre');
                 sessionStorage.removeItem('allMoviesVoteAverage');

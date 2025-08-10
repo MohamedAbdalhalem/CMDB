@@ -3,9 +3,12 @@ import useTvShowDetials from "../Hooks/useTvShowDetials"
 import MovieDetialsLoadingScreen from "./MovieDetialsLoadingScreen"
 import notFoundImg from '../assets/No_Image_Available.jpg'
 import TvShowCastandCrewSlider from "./TvShowCastandCrewSlider"
+import useTrailer from "../Hooks/useTrailer"
+import TrailerModal from "./TrailerModal"
 export default function TvShowOverview() {
   const { id } = useParams()
-  const { tvShowsdetails,  isLoading } = useTvShowDetials(id)
+  const { tvShowsdetails, isLoading } = useTvShowDetials(id)
+  const trailer = useTrailer(false,id!)
   if (isLoading) {
       <MovieDetialsLoadingScreen/> 
     }
@@ -49,6 +52,7 @@ export default function TvShowOverview() {
                 {Number(tvShowsdetails?.vote_average?.toFixed(1)) * 10 + "%"}
               </div>
               <span className="text-base font-semibold">User Score</span>
+              {trailer?.length ? <TrailerModal trailerName={ trailer[0].name } trailerkey={trailer[0].key} /> : ''}
             </div>
 
             <p className="italic text-lg text-gray-300">{tvShowsdetails?.tagline}</p>
