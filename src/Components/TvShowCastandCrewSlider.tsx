@@ -25,7 +25,7 @@ export default function TvShowCastandCrewSlider({ tvShowId}: { tvShowId: string 
   }
     return (
       <>
-        {cast?.length  ? <div className="my-4 ">
+        {cast?.length  ? <div className="my-4  border-b border-gray-300 dark:border-gray-700">
             <h2 className="text-gray-800  dark:text-white font-bold text-3xl mb-4">cast</h2>
         <Carousel
           className="mb-4 pb-4"

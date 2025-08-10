@@ -25,7 +25,7 @@ export default function RecommendationMoviesSlider({ movieId }: { movieId: strin
   };
   return (
     <div className="my-4">
-          {results?.length ? <h2 className="text-gray-800  dark:text-white font-bold text-3xl mb-4">Recommendation</h2> : ''}
+          {results?.length ? <h2 className="text-gray-800  dark:text-white font-bold text-3xl mb-4">Recommendation Movies</h2> : ''}
           <Carousel
                     className="mb-4 pb-4"
                     responsive={responsive}
