@@ -5,7 +5,9 @@ import usePersonDetials from '../Hooks/usePersonDetials'
 import PersonSocialMediaSection from '../Components/PersonSocialMediaSection'
 import KnowForSlider from '../Components/KnowForSlider'
 import PersonCredits from '../Components/PersonCredits'
+import { useState } from 'react'
 export default function PersonDetials() {
+  const [seeReadMore,setSeeReadMore] = useState(false)
   const {personId} = useParams()
   const {personDetials,isLoading,age} = usePersonDetials(personId!)
   if (isLoading) {
@@ -15,18 +17,22 @@ export default function PersonDetials() {
    
 <div className="px-5 pb-5 pt-22">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-4">
-  <div className="rounded-xl h-100 md:h-full w-full ">
-    <img src={personDetials?.profile_path ? `https://image.tmdb.org/t/p/w500_and_h282_face/${personDetials.profile_path}` : notFoundImg} alt={personDetials?.name} className="w-full shadow-lg rounded-xl h-full object-fill" />
+  <div className="rounded-xl h-100 md:h-120  w-full ">
+    <img src={personDetials?.profile_path ? `https://image.tmdb.org/t/p/w500_and_h282_face/${personDetials.profile_path}` : notFoundImg} alt={personDetials?.name} className="w-full shadow-lg  object-fill rounded-xl h-full " />
   </div>
   <div className="md:col-span-3">
           <h1 className="text-gray-900 dark:text-white mb-4 font-bold text-4xl">
             {personDetials?.name}
     </h1>
     <h3 className="text-gray-900 dark:text-white mb-2 font-bold text-xl">Biography :</h3>
-    <p className="text-gray-400 text-base mb-4">
-     {personDetials?.biography ? personDetials.biography : `We Don't hava a biography for ${personDetials?.name}`}
-    </p>
-          
+    <span className="text-gray-400 text-base mb-4">
+            {personDetials?.biography ? personDetials.biography.split(' ').slice(0, 60).join(" ") : `We Don't hava a biography for ${personDetials?.name}`}
+            {!seeReadMore && <span  onClick={() => setSeeReadMore(true)} className='text-black cursor-pointer dark:text-white text-base'>...Read More</span>}
+    </span>
+       { seeReadMore && <span className="text-gray-400 text-base  mb-4">
+            {personDetials?.biography ? personDetials.biography.split(' ').slice(60, ).join(" ") : `We Don't hava a biography for ${personDetials?.name}`}
+            
+    </span>  } 
           <KnowForSlider personId={ personId! } />
     </div>
       </div>

@@ -28,7 +28,7 @@ export default function KnowForSlider({ personId }: { personId: string }) {
         </>
     }
     return (
-        <>
+        <div className="mt-4">
             <h3 className="text-gray-900 dark:text-white font-bold text-xl mb-2">Known For</h3>
     <Carousel
                     className="mb-4 py-4"
@@ -63,6 +63,6 @@ export default function KnowForSlider({ personId }: { personId: string }) {
                                   </div>
           </Link>)}
             </Carousel>
-            </>
+            </div>
   )
 }
