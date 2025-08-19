@@ -23,14 +23,14 @@ export default function MovieOverview(){
         backgroundImage: `url(https://image.tmdb.org/t/p/w1280/${details?.backdrop_path})`
       }}
     >
-      <div className="absolute  inset-0 bg-black/80 backdrop-blur-md z-0"></div>
+      <div className="absolute  inset-0 bg-black/80 backdrop-blur-[2px] z-0"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto grid md:grid-cols-4 gap-10 items-start">
         <div className="rounded-xl h-full  overflow-hidden shadow-lg">
           <img
-            src={details?.backdrop_path ? `https://image.tmdb.org/t/p/w500/${details?.poster_path}` : notFoundImg}
+            src={details?.poster_path ? `https://image.tmdb.org/t/p/w500/${details?.poster_path}` : notFoundImg}
             alt={details?.title}
-            className="w-full h-full object-fill"
+            className="w-full h-full object-cover"
           />
         </div>
 

@@ -19,10 +19,11 @@ export default function TvShowOverview() {
       <div
         className="relative bg-cover bg-center py-10 px-4 sm:px-10"
         style={{
-          backgroundImage: `url(https://image.tmdb.org/t/p/w1280/${tvShowsdetails?.poster_path})`
+          backgroundImage: `url(https://image.tmdb.org/t/p/w1280/${tvShowsdetails?.poster_path})`,
+          objectFit: 'cover'
         }}
       >
-        <div className="absolute  inset-0 bg-black/80 backdrop-blur-md z-0"></div>
+        <div className="absolute  inset-0 bg-black/80 backdrop-blur-[1px] z-0"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto grid md:grid-cols-4 gap-10 items-start">
           <div className="rounded-xl h-full  overflow-hidden shadow-lg">
