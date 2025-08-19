@@ -4,6 +4,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import useEpisodeDetials from "../Hooks/useEpisodeDetials"
 import { Link } from "react-router";
+import { scrollTOTop } from "../utilities";
 export default function EpisodeDetials() {
    const responsive = {
   desktop: {
@@ -86,7 +87,7 @@ export default function EpisodeDetials() {
                 responsive={responsive}
                 itemClass="pe-5"
       >
-        {episodeDetials?.crew.map(person =><Link to={`/people/${person.id}`}  className="block bg-white h-full dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+        {episodeDetials?.crew.map(person =><Link onClick={scrollTOTop} to={`/people/${person.id}`}  className="block bg-white h-full dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition duration-300">
                         <img
                             className="w-full h-48 object-cover"
                             src={person.profile_path ? `https://image.tmdb.org/t/p/w500_and_h282_face/${person.profile_path}` : notFoundImg}
@@ -104,7 +105,7 @@ export default function EpisodeDetials() {
                 responsive={responsive}
                 itemClass="pe-5"
       >
-        {episodeDetials?.guest_stars.map(person =><Link to={`/people/${person.id}`}  className="block bg-white h-full dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+        {episodeDetials?.guest_stars.map(person =><Link onClick={scrollTOTop} to={`/people/${person.id}`}  className="block bg-white h-full dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition duration-300">
                         <img
                             className="w-full h-48 object-cover"
                             src={person.profile_path ? `https://image.tmdb.org/t/p/w500_and_h282_face/${person.profile_path}` : notFoundImg}

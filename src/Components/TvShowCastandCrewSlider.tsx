@@ -4,6 +4,7 @@ import LoudingISlider from "./LoudingSlider";
 import { Link } from "react-router";
 import notFoundImg from '../assets/No_Image_Available.jpg'
 import useTvShowCastAndCrew from "../Hooks/UseTvShowCastandCrew";
+import { scrollTOTop } from "../utilities";
 export default function TvShowCastandCrewSlider({ tvShowId}: { tvShowId: string }) {
   const { cast, isLoading } = useTvShowCastAndCrew(tvShowId)
   const responsive = {
@@ -33,7 +34,7 @@ export default function TvShowCastandCrewSlider({ tvShowId}: { tvShowId: string 
           itemClass="pe-5"
         >
           {cast?.slice(0, 10).map(item => 
-                <Link to={`/people/${item.id}`}  className="block bg-white h-full dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                <Link onClick={scrollTOTop} to={`/people/${item.id}`}  className="block bg-white h-full dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition duration-300">
                         <img
                             className="w-full h-48 object-cover"
                             src={item.profile_path ? `https://image.tmdb.org/t/p/w500_and_h282_face/${item.profile_path}` : notFoundImg}
@@ -46,7 +47,7 @@ export default function TvShowCastandCrewSlider({ tvShowId}: { tvShowId: string 
                     </Link>
               )}
         </Carousel>
-        <Link to={`/tvShows/${tvShowId}/cast&crew`} className="text-[#1A71E3] text-2xl mt-4 font-bold">See Full Cast&Crew</Link>
+        <Link onClick={scrollTOTop} to={`/tvShows/${tvShowId}/cast&crew`} className="text-[#1A71E3] text-2xl mt-4 font-bold">See Full Cast&Crew</Link>
         </div> : ''}
       </>
     )

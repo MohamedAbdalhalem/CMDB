@@ -39,4 +39,10 @@ export function getEditing(crews : castAndCrewType[] | undefined) {
 export function getVisualEffects(crews : castAndCrewType[] | undefined) {
         const VisualEffects = crews?.filter((ele) => ele.known_for_department == 'Visual Effects')
         return VisualEffects
-    }
+}
+export function scrollTOTop() {
+    scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+}    

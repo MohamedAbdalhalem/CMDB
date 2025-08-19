@@ -4,6 +4,7 @@ import LoudingISlider from "./LoudingSlider";
 import { Link } from "react-router";
 import notFoundImg from '../assets/No_Image_Available.jpg'
 import useRecommendationTvShows from "../Hooks/useRecommendationTvShows";
+import { scrollTOTop } from "../utilities";
 export default function RecommendationTvShowsSlider({ tvShowId }: { tvShowId: string }) {
     const {results,isLoading} = useRecommendationTvShows(tvShowId)
     if (isLoading) {
@@ -32,7 +33,7 @@ export default function RecommendationTvShowsSlider({ tvShowId }: { tvShowId: st
                     itemClass="pe-5"
                   >
                     {results?.slice(0, 10).map(tvShow => 
-                          <Link to={`/tvShows/${tvShow.id}/overview`} key={tvShow.id}  className="block h-full bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                          <Link onClick={scrollTOTop} to={`/tvShows/${tvShow.id}/overview`} key={tvShow.id}  className="block h-full bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition duration-300">
                                   <img
                                       className="w-full h-48 object-cover"
                           src={ tvShow.backdrop_path ? `https://image.tmdb.org/t/p/w500_and_h282_face/${tvShow.backdrop_path}`  :  notFoundImg }

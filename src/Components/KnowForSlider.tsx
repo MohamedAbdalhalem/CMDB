@@ -4,6 +4,7 @@ import useKnowFor from "../Hooks/useKnowFor";
 import LoudingISlider from "./LoudingSlider";
 import notFoundImg from '../assets/No_Image_Available.jpg'
 import { Link } from 'react-router';
+import { scrollTOTop } from "../utilities";
 export default function KnowForSlider({ personId }: { personId: string }) {
   const {cast,crew,isLoading} = useKnowFor(personId)
   const responsive = {
@@ -34,7 +35,7 @@ export default function KnowForSlider({ personId }: { personId: string }) {
                     responsive={responsive}
                     itemClass="pe-5"
       >
-          {cast?.map(item => <Link
+          {cast?.map(item => <Link onClick={scrollTOTop}
             to={item.media_type == 'movie' ? `/movies/${item.id}/overview` :
               `/tvShows/${item.id}/overview`}
             key={item.id} className="block h-full bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition duration-300">
@@ -48,6 +49,7 @@ export default function KnowForSlider({ personId }: { personId: string }) {
                                   </div>
           </Link>)}
           {crew?.map(item => <Link
+            onClick={scrollTOTop}
             to={item.media_type == 'movie' ? `/movies/${item.id}/overview` :
               `/tvShows/${item.id}/overview`}
             key={item.id} className="block h-full bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition duration-300">

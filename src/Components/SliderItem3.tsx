@@ -1,12 +1,13 @@
 import { Link } from 'react-router'
 import { movieType } from '../Types/MovieType'
-
+import notFoundImg from '.././assets/No_Image_Available.jpg'
+import { scrollTOTop } from "../utilities";
 export default function SliderItem3({movieData} : {movieData : movieType}) {
   return (
-  <Link to={`/movies/${movieData.id}/overview`} className="relative block  h-full mb-2  rounded-2xl bg-white dark:bg-gray-900 shadow-lg overflow-hidden">
+  <Link onClick={scrollTOTop} to={`/movies/${movieData.id}/overview`} className="relative block  h-full mb-2  rounded-2xl bg-white dark:bg-gray-900 shadow-lg overflow-hidden">
     <div className="relative">
       <img
-        src={`https://image.tmdb.org/t/p/w500_and_h282_face/${movieData.poster_path}`} 
+        src={movieData.poster_path ? `https://image.tmdb.org/t/p/w500_and_h282_face/${movieData.poster_path}` : notFoundImg} 
         alt={movieData.title}
         className="h-64 w-full object-cover"
       />

@@ -4,6 +4,7 @@ import LoudingISlider from "./LoudingSlider";
 import { Link } from "react-router";
 import useRecommendationMovies from "../Hooks/useRecommendationMovies";
 import notFoundImg from '../assets/No_Image_Available.jpg'
+import { scrollTOTop } from "../utilities";
 export default function RecommendationMoviesSlider({ movieId }: { movieId: string }) {
     const {results,isLoading} = useRecommendationMovies(movieId)
     if (isLoading) {
@@ -32,7 +33,7 @@ export default function RecommendationMoviesSlider({ movieId }: { movieId: strin
                     itemClass="pe-5"
                   >
                     {results?.slice(0, 10).map(movie => 
-                          <Link to={`/movies/${movie.id}/overview`} key={movie.id}  className="block h-full bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                          <Link onClick={scrollTOTop} to={`/movies/${movie.id}/overview`} key={movie.id}  className="block h-full bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition duration-300">
                                   <img
                                       className="w-full h-48 object-cover"
                           src={ movie.backdrop_path ? `https://image.tmdb.org/t/p/w500_and_h282_face/${movie.backdrop_path}`  :  notFoundImg }

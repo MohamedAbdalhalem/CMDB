@@ -3,6 +3,7 @@ import { peopleType } from "../Types/PeopleType"
 import { tvType } from "../Types/TvTypes"
 import notFoundImg from '../assets/No_Image_Available.jpg'
 import { Link } from 'react-router';
+import { scrollTOTop } from "../utilities";
 export default function Card({ type,movieData ,tvShowData ,personData }
     : {
         type: 'movie' | "tv" | "person",
@@ -25,6 +26,7 @@ export default function Card({ type,movieData ,tvShowData ,personData }
     }
   return (
     <Link
+      onClick={scrollTOTop}
       to={pathName}
       className="w-full bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden border dark:border-gray-700">
       {/* movie img */}
