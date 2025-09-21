@@ -3,23 +3,15 @@ import "react-multi-carousel/lib/styles.css";
 import LoudingISlider from "./LoudingSlider";
 import useMovieTrending from './../Hooks/useMovieTrending';
 import SliderItem1 from "./SliderItem1";
+import { useMemo } from "react";
 
 export default function MovieTrendingSection() {
   const {resluts,isLoading,filter,isDay} = useMovieTrending()
-   const responsive = {
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 5.5  
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 640 },
-    items: 3.5
-  },
-  mobile: {
-    breakpoint: { max: 640, min: 0 },
-    items: 1.5
-  }
-  };
+   const responsive = useMemo(() => ({
+  desktop: { breakpoint: { max: 3000, min: 1024 }, items: 5.5 },
+  tablet: { breakpoint: { max: 1024, min: 640 }, items: 3.5 },
+  mobile: { breakpoint: { max: 640, min: 0 }, items: 1.5 }
+}), []);
   if (isLoading) {
     return <LoudingISlider/>
   }

@@ -1,6 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-export default function TrailerModal({trailerkey,trailerName} : {trailerkey : string,trailerName: string}) {
+export default React.memo( function TrailerModal({trailerkey,trailerName} : {trailerkey : string,trailerName: string}) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -38,4 +38,4 @@ export default function TrailerModal({trailerkey,trailerName} : {trailerkey : st
       )}
     </div>
   );
-}
+})

@@ -1,8 +1,9 @@
+import React from "react";
 import { Link } from "react-router";
 import { movieType } from "../Types/MovieType";
 import { scrollTOTop } from './../utilities';
 import notFoundImg from '.././assets/No_Image_Available.jpg'
-export default function SliderItem1({movieData} : {movieData : movieType}) {
+export default React.memo( function SliderItem1({movieData} : {movieData : movieType}) {
   return (
           <Link onClick={scrollTOTop} to={`/movies/${movieData.id}/overview`} className="relative block h-full mb-2  rounded-2xl bg-white dark:bg-gray-900 shadow-lg overflow-hidden">
   <div className="relative">
@@ -29,4 +30,4 @@ export default function SliderItem1({movieData} : {movieData : movieType}) {
 
           
   )
-}
+})

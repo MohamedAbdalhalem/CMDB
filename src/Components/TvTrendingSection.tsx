@@ -3,9 +3,11 @@ import "react-multi-carousel/lib/styles.css";
 import LoudingISlider from "./LoudingSlider";
 import useTvTrending from "../Hooks/useTvTrending";
 import SliderItem2 from "./SliderItem2";
+import { useMemo } from "react";
 export default function TvTrendingSection() {
   const {resluts,isLoading,filter,isDay} = useTvTrending()
- const responsive = {
+  const responsive = useMemo(() => (
+   {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
     items: 5.5  
@@ -18,7 +20,8 @@ export default function TvTrendingSection() {
     breakpoint: { max: 640, min: 0 },
     items: 1.5
   }
-  };
+  }
+ ),[]) 
   if (isLoading) {
     return <LoudingISlider/>
   }

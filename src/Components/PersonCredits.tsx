@@ -4,7 +4,6 @@ import { scrollTOTop } from "../utilities"
 
 export default function PersonCredits({ personId, department }: { personId: string, department: string }) {
     const { cast, crew, isLoading, setMovieOrTv } = usePersonCredits(personId)
-    console.log(cast,crew)
     
   return (
     <>

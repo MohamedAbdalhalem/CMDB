@@ -1,8 +1,7 @@
-import {  useEffect, useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import { genreType } from '../Types/GenerType';
 
-
-export default function Filter({ filter,genres,isMovies }: { filter : (newGenre : string,newVoteAverage :string,newSortBy :string) => void, genres:  genreType[] | undefined,isMovies : boolean}) {
+export default React.memo( function Filter({ filter,genres,isMovies }: { filter : (newGenre : string,newVoteAverage :string,newSortBy :string) => void, genres:  genreType[] | undefined,isMovies : boolean}) {
   const [open, setOpen] = useState(false);
   const [tempGenre, setTempGenre] = useState('') 
   const [tempVoteAverage,setTempVoteAverage] = useState('')
@@ -118,4 +117,4 @@ export default function Filter({ filter,genres,isMovies }: { filter : (newGenre 
       )}
     </div>
   );
-}
+})

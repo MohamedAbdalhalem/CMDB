@@ -4,7 +4,8 @@ import { tvType } from "../Types/TvTypes"
 import notFoundImg from '../assets/No_Image_Available.jpg'
 import { Link } from 'react-router';
 import { scrollTOTop } from "../utilities";
-export default function Card({ type,movieData ,tvShowData ,personData }
+import React from "react";
+export default React.memo( function Card({ type,movieData ,tvShowData ,personData }
     : {
         type: 'movie' | "tv" | "person",
         movieData?: movieType,
@@ -102,4 +103,4 @@ export default function Card({ type,movieData ,tvShowData ,personData }
       </div>}
     </Link>
   )
-}
+})

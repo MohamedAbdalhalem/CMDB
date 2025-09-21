@@ -1,21 +1,24 @@
 import { useQuery } from '@tanstack/react-query';
 import { movieType } from '../Types/MovieType';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 export default function useAllMovies() {
     const [page, setPage] = useState(1)
     const [genre, setGenreState] = useState('')
     const [voteAverage, setVoteAverage] = useState('')
-    const [sortBy,setSortBy] = useState('popularity.desc')
-    function filter(newGenre: string,newVoteAverage :string,newSortBy :string) {
-        sessionStorage.setItem('allMoviesGenre', newGenre);
-        sessionStorage.setItem('allMoviesVoteAverage', newVoteAverage);
+    const [sortBy, setSortBy] = useState('popularity.desc')
+    const filter = useCallback((
+    newGenre: string,newVoteAverage :string,newSortBy :string
+    ) => {
+  sessionStorage.setItem('allMoviesGenre', newGenre);
+  sessionStorage.setItem('allMoviesVoteAverage', newVoteAverage);
         sessionStorage.setItem('allMoviesSortBy', newSortBy);
         setGenreState(newGenre);
-        setVoteAverage(newVoteAverage)
-        setSortBy(newSortBy)
-    }
+  setVoteAverage(newVoteAverage);
+  setSortBy(newSortBy);
+    },[])
+    
     function getAllMovies() {
         return axios.get<{ results: movieType[] | undefined, total_pages: number }>(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=${sortBy}&vote_average.gte=${voteAverage}&with_genres=${genre}`, {
             headers: {

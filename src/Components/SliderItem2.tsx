@@ -1,8 +1,9 @@
+import React from "react";
 import { Link } from "react-router";
 import { tvType } from "../Types/TvTypes";
 import notFoundImg from '.././assets/No_Image_Available.jpg'
 import { scrollTOTop } from "../utilities";
-export default function SliderItem2({tvData} : {tvData : tvType}) {
+export default React.memo( function SliderItem2({tvData} : {tvData : tvType}) {
   return (
       <Link onClick={scrollTOTop} to={`/tvShows/${tvData.id}/overview`} className={`relative block  h-full mb-2  rounded-2xl bg-white dark:bg-gray-900 shadow-lg overflow-hidden`}>
   <div className="relative">
@@ -27,4 +28,4 @@ export default function SliderItem2({tvData} : {tvData : tvType}) {
   </div>
 </Link>
   )
-}
+})
