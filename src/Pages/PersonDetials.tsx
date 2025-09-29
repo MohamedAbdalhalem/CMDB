@@ -5,11 +5,14 @@ import usePersonDetials from '../Hooks/usePersonDetials'
 import PersonSocialMediaSection from '../Components/PersonSocialMediaSection'
 import KnowForSlider from '../Components/KnowForSlider'
 import PersonCredits from '../Components/PersonCredits'
-import { useState } from 'react'
+import { useLayoutEffect, useState } from 'react'
 export default function PersonDetials() {
   const [seeReadMore,setSeeReadMore] = useState(false)
   const {personId} = useParams()
-  const {personDetials,isLoading,age} = usePersonDetials(personId!)
+  const { personDetials, isLoading, age } = usePersonDetials(personId!)
+  useLayoutEffect(() => {
+      window.scrollTo(0,0)
+    },[])
   if (isLoading) {
     return <PersonDetialsLoadingScreen/>
   }

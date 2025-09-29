@@ -1,6 +1,10 @@
+import { useLayoutEffect } from 'react'
 import { NavLink, Outlet, useParams } from 'react-router'
 export default function TvShowDetials() {
-    const { id } = useParams()
+  const { id } = useParams()
+  useLayoutEffect(() => {
+      window.scrollTo(0,0)
+    },[])
   return (
     <>
       <div className=" px-5 pb-5 pt-20 flex justify-center flex-wrap items-center gap-6 py-4 border-b border-gray-800 bg-gray-100 dark:bg-gray-950 text-gray-900 dark:text-white">

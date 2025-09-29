@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router";
+import { createBrowserRouter, RouterProvider} from "react-router";
 import Login from "./Pages/Login";
 import Home from "./Pages/Home";
 import { Provider } from "react-redux";
@@ -22,6 +22,7 @@ import SeasonDetials from "./Pages/SeasonDetials";
 import EpisodeDetials from "./Pages/EpisodeDetials";
 import SearchResults from "./Pages/SearchResults";
 import DataNotFound from "./Pages/DataNotFound";
+
 const router = createBrowserRouter([{
   path: '', element: <Layout />, children: [
     { path: '', element: <AuthRoute><Home /></AuthRoute> },
@@ -62,7 +63,9 @@ return (
     
         <Provider store={ourStore}>
           <QueryClientProvider client={queryClient}>
-            <RouterProvider router={router} />
+        <RouterProvider router={router} >
+          
+            </RouterProvider>
           </QueryClientProvider>
         </Provider>
       

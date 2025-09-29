@@ -6,7 +6,7 @@ import TvShowCastandCrewSlider from "./TvShowCastandCrewSlider"
 import useTrailer from "../Hooks/useTrailer"
 import TrailerModal from "./TrailerModal"
 import RecommendationTvShowsSlider from "./RecommendationTvShowsSlider"
-import { scrollTOTop } from "../utilities"
+
 export default function TvShowOverview() {
   const { id } = useParams()
   const { tvShowsdetails, isLoading } = useTvShowDetials(id)
@@ -74,7 +74,7 @@ export default function TvShowOverview() {
   .filter(season => season.name !== 'Specials')
   .map(season => (
     <Link
-      onClick={scrollTOTop}
+      
       to={`/tvShows/${id}/${tvShowsdetails.name}/season/${season.season_number}`}
       key={season.id}
       className="bg-[#1A71E3] py-2 px-3 text-white font-bold text-base text-center shadow-lg rounded-lg"

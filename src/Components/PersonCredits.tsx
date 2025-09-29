@@ -1,6 +1,6 @@
 import { Link } from "react-router"
 import usePersonCredits from "../Hooks/usePersonCredits"
-import { scrollTOTop } from "../utilities"
+
 
 export default function PersonCredits({ personId, department }: { personId: string, department: string }) {
     const { cast, crew, isLoading, setMovieOrTv } = usePersonCredits(personId)
@@ -32,7 +32,7 @@ export default function PersonCredits({ personId, department }: { personId: stri
             {cast?.map(ele => (
               
               <Link
-                onClick={scrollTOTop}
+                
                 to={ele.title ? `/movies/${ele.id}/overview` :
               `/tvShows/${ele.id}/overview`}
                 key={ele.id} className='text-gray-900 block w-fit dark:text-white hover:text-[#1A71E3] transition-all font-bold text-lg mb-4 '>

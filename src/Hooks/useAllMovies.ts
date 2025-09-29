@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { movieType } from '../Types/MovieType';
 import axios from 'axios';
 import { useCallback, useEffect, useState } from 'react';
+import { scrollTOTop } from '../utilities';
 
 export default function useAllMovies() {
     const [page, setPage] = useState(1)
@@ -29,6 +30,7 @@ export default function useAllMovies() {
     }
     function handlePageChange({ selected }: { selected: number }) {
         sessionStorage.setItem('allMoviesPage', String(selected + 1))
+        scrollTOTop()
         setPage(selected + 1)
     }
     useEffect(() => {

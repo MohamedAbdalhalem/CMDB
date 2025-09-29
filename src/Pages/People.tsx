@@ -7,6 +7,7 @@ import usePeople from "../Hooks/usePeople"
 
 export default function People() {
     const { handlePageChange, page, isLoading, results } = usePeople()
+    
     if (isLoading) {
             return <MainLoudingScreen/>
         }

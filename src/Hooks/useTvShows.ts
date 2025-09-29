@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { tvType } from '../Types/TvTypes';
+import { scrollTOTop } from '../utilities';
 
 export default function useTvShows() {
     const [page, setPage] = useState(1)
@@ -26,6 +27,7 @@ export default function useTvShows() {
     }
     function handlePageChange({ selected }: { selected: number }) {
         sessionStorage.setItem('TvShowsPage', String(selected + 1))
+        scrollTOTop()
         setPage(selected + 1)
     }
     useEffect(() => {

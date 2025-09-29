@@ -8,10 +8,12 @@ import MovieCastandCrewSlider from './MovieCastandCrewSlider'
 import TrailerModal from './TrailerModal'
 import useTrailer from '../Hooks/useTrailer'
 
+
 export default function MovieOverview(){
   const { id } = useParams()
   const { details, getTime, isLoading } = useMovieDetials(id)
-  const trailer = useTrailer( true,id!)
+  const trailer = useTrailer(true, id!)
+ 
   if (isLoading) {
     <MovieDetialsLoadingScreen/> 
   }

@@ -1,10 +1,10 @@
 import { Link } from "react-router";
 import { castAndCrewType } from "../Types/CastAndCrewType";
 import NotfoundImage from "../assets/images.png"
-import { scrollTOTop } from "../utilities";
+
 export default function CastorCrewPerson({data} : {data : castAndCrewType}) {
   return (
-     <Link onClick={scrollTOTop} to={`/people/${data.id}`} className="flex items-center gap-4 p-4  bg-white dark:bg-gray-900 rounded-xl shadow-md hover:shadow-lg mb-2 transition-shadow duration-300">
+     <Link  to={`/people/${data.id}`} className="flex items-center gap-4 p-4  bg-white dark:bg-gray-900 rounded-xl shadow-md hover:shadow-lg mb-2 transition-shadow duration-300">
       <img
         src={data.profile_path ? `https://image.tmdb.org/t/p/w500_and_h282_face/${data.profile_path}` : NotfoundImage}
         alt={data.name}

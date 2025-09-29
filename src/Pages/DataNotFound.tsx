@@ -1,6 +1,10 @@
+import { useLayoutEffect } from "react";
 import { Link } from "react-router";
 
 export default function DataNotFound() {
+  useLayoutEffect(() => {
+      window.scrollTo(0,0)
+    },[])
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900 px-4">
       <div className="text-center">

@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router";
 import { tvType } from "../Types/TvTypes";
 import notFoundImg from '.././assets/No_Image_Available.jpg'
-import { scrollTOTop } from "../utilities";
+
 export default React.memo( function SliderItem2({tvData} : {tvData : tvType}) {
   return (
-      <Link onClick={scrollTOTop} to={`/tvShows/${tvData.id}/overview`} className={`relative block  h-full mb-2  rounded-2xl bg-white dark:bg-gray-900 shadow-lg overflow-hidden`}>
+      <Link  to={`/tvShows/${tvData.id}/overview`} className={`relative block  h-full mb-2  rounded-2xl bg-white dark:bg-gray-900 shadow-lg overflow-hidden`}>
   <div className="relative">
     <img
       src={tvData.backdrop_path ? `https://image.tmdb.org/t/p/w500_and_h282_face/${tvData.backdrop_path}` : notFoundImg} 

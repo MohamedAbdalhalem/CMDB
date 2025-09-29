@@ -1,11 +1,11 @@
 import { Link, useParams } from "react-router";
 import { episodeData } from "../Types/SeasonDetialsType";
 import notFoundImg from '../assets/No_Image_Available.jpg'
-import { scrollTOTop } from "../utilities";
+
 export default function EpisodeCard({ episodeData }: { episodeData: episodeData }) {
   const { tvShowId, tvShowName, seasonNumber } = useParams()
   return (
-    <Link onClick={scrollTOTop} to={`/tvShows/${tvShowId}/${tvShowName}/season/${seasonNumber}/episode/${episodeData.episode_number}`} className="w-full block bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden border dark:border-gray-700">
+    <Link  to={`/tvShows/${tvShowId}/${tvShowName}/season/${seasonNumber}/episode/${episodeData.episode_number}`} className="w-full block bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden border dark:border-gray-700">
   <img
     src={episodeData.still_path ? `https://image.tmdb.org/t/p/w500/${episodeData.still_path}` :notFoundImg}
     alt={episodeData.name}

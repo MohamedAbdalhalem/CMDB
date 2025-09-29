@@ -2,10 +2,14 @@ import { useParams } from "react-router"
 import useSeasonDetials from "../Hooks/useSeasonDetials"
 import MovieDetialsLoadingScreen from "../Components/MovieDetialsLoadingScreen"
 import EpisodeCard from "../Components/EpisodeCard"
+import { useLayoutEffect } from "react"
 
 export default function SeasonDetials() {
     const { tvShowId, tvShowName, seasonNumber } = useParams()
-    const {seasonDetials,isLoading} = useSeasonDetials(tvShowId!,seasonNumber!)
+  const { seasonDetials, isLoading } = useSeasonDetials(tvShowId!, seasonNumber!)
+  useLayoutEffect(() => {
+      window.scrollTo(0,0)
+    },[])
   if (isLoading) {
       return <MovieDetialsLoadingScreen/>
     }

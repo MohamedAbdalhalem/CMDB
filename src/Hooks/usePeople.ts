@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { peopleType } from '../Types/PeopleType';
+import { scrollTOTop } from '../utilities';
 
 export default function usePeople() {
   const [page, setPage] = useState(1)
@@ -14,7 +15,8 @@ export default function usePeople() {
         })
     }
     function handlePageChange({ selected }: { selected: number }) {
-        sessionStorage.setItem('peoplePage',String(selected +1))
+        sessionStorage.setItem('peoplePage', String(selected + 1))
+        scrollTOTop()
         setPage(selected + 1)
     }
     useEffect(() => {

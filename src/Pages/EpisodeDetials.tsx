@@ -5,6 +5,7 @@ import "react-multi-carousel/lib/styles.css";
 import useEpisodeDetials from "../Hooks/useEpisodeDetials"
 import { Link } from "react-router";
 import { scrollTOTop } from "../utilities";
+import { useLayoutEffect } from "react";
 export default function EpisodeDetials() {
    const responsive = {
   desktop: {
@@ -20,7 +21,10 @@ export default function EpisodeDetials() {
     items: 1.5
   }
   };
-  const {tvShowName,episodeDetials,isLoading,episodeNumber,seasonNumber} = useEpisodeDetials()
+  const { tvShowName, episodeDetials, isLoading, episodeNumber, seasonNumber } = useEpisodeDetials()
+  useLayoutEffect(() => {
+      window.scrollTo(0,0)
+    },[])
   if (isLoading) {
     return <MovieDetialsLoadingScreen/>
   }
